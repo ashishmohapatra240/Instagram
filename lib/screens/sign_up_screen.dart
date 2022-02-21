@@ -32,7 +32,7 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 
   void selectImage() async {
-    Uint8List im = await pickImage(ImageSource.gallery);
+    Uint8List? im = await pickImage(ImageSource.gallery);
     setState(() {
       _image = im;
     });
@@ -41,6 +41,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset : false,
       body: SafeArea(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 32.0),
@@ -169,9 +170,9 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 8),
                     ),
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),
